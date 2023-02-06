@@ -1,41 +1,48 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
+import React from 'react'
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
-import Toolbar from '@mui/material/Toolbar';
 import { mainNavbarItems } from './const/NavbarListItems';
-;
+import { NavbarStyle } from './navStyle';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  //const navigate = useNavigate();
 
   return (
-    <div>
+      <Drawer
+          sx={NavbarStyle.drawer}
+          variant="permanent"
+          anchor="left"
+      >
     <Toolbar />
     <Divider />
     <List>
-      {mainNavbarItems.map((text, index) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {text.icon}
+      {mainNavbarItems.map((item, index) => (
+        <ListItem 
+        button
+        key={item.id}
+        //onClick={() => navigate(item.route)}
+        >
+            <ListItemIcon
+              sx={NavbarStyle.icons}
+            >
+              {item.icon}
             </ListItemIcon>
-            <ListItemText primary={text.label} />
-          </ListItemButton>
+            <ListItemText
+            sx={NavbarStyle.item} 
+            primary={item.label} />
         </ListItem>
       ))}
     </List>
     <Divider />
-  </div>
+    </Drawer>
   );
 };
 
 export default Navbar;
+
