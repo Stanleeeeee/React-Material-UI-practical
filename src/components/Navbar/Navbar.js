@@ -14,35 +14,34 @@ const Navbar = () => {
   //const navigate = useNavigate();
 
   return (
-      <Drawer
-          sx={NavbarStyle.drawer}
-          variant="permanent"
-          anchor="left"
-      >
-    <Toolbar />
-    <Divider />
-    <List>
-      {mainNavbarItems.map((item, index) => (
-        <ListItem 
-        button
-        key={item.id}
-        //onClick={() => navigate(item.route)}
-        >
-            <ListItemIcon
-              sx={NavbarStyle.icons}
+          <Drawer
+              sx={NavbarStyle.drawer}
+              variant="permanent"
+              anchor="left"
+          >
+        <Toolbar />
+        <Divider />
+        <List>
+          {mainNavbarItems.map((item, index) => (
+            <ListItem 
+            button
+            key={item.id}
+            //onClick={() => navigate(item.route)}
             >
-              {item.icon}
-            </ListItemIcon>
-            <ListItemText
-            sx={NavbarStyle.item} 
-            primary={item.label} />
-        </ListItem>
-      ))}
-    </List>
-    <Divider />
-    </Drawer>
-  );
-};
-
-export default Navbar;
-
+                <ListItemIcon
+                  sx={NavbarStyle.icons}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                sx={NavbarStyle.item} 
+                primary={item.label} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        </Drawer>
+      );
+    };
+    
+    export default Navbar;
