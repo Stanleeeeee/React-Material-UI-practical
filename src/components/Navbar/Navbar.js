@@ -11,7 +11,7 @@ import { NavbarStyle } from './navStyle';
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
           <Drawer
@@ -26,7 +26,7 @@ const Navbar = () => {
             <ListItem 
             button
             key={item.id}
-            //onClick={() => navigate(item.route)}
+            onClick={() => navigate(item.route)}
             >
                 <ListItemIcon
                   sx={NavbarStyle.icons}
